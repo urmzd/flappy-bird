@@ -1,5 +1,9 @@
 package com.flappybird.app;
-
+/**
+ * The Bird class represents a Bird object which acts as a player in the Game.
+ * 
+ * @author Urmzd Mukhammadnaim
+ */
 public class Bird extends Sprite{
 
     // CONSTANTS.
