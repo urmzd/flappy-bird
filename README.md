@@ -1,2 +1,2 @@
 # flappybird
-Flappy Bird remake in Java
+Flappy Bird clone in Java
