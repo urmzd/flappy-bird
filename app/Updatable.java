@@ -3,6 +3,8 @@ package com.flappybird.app;
 /**
  * The Updateable intefaces defines methods used when changing the position, velocity,
  * rotation or acceleration of an Object.
+ * 
+ * @author Urmzd Mukhammadnaim
  */
 public interface Updatable {
 
