@@ -1,6 +1,6 @@
 package com.flappybird.app;
 /**
- * The FlappyBird class runs the a clone of the popular mobile-game Flappy Bird.
+ * The FlappyBird class runs a clone of the popular mobile-game Flappy Bird.
  * 
  * @author Urmzd Mukhammadnaim
  */
