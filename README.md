@@ -1,11 +1,13 @@
 # flappybird
 Flappy Bird clone in Java using JavaFX13.
 
-Requirements:
+Requirements for compilation:
 
 JavaFX13
+Java 8+
 
 # HOW TO RUN:
 
-1. Compile all files with the required dependencies (JavaFX13).
-2. Run FlappyBird object file.
+1. Download jar file.
+2. Ensure that you have Java 8+ installed and open file.
+3. Play.
