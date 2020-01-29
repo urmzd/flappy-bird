@@ -10,4 +10,4 @@ Java 8+
 
 1. Download jar file.
 2. Ensure that you have Java 8+ installed and open file.
-3. Play.
+3. Play. (PRESS SPACE TO PLAY, PRESS SPACE TO MOVE UP).
