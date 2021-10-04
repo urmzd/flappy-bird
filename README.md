@@ -7,4 +7,5 @@ A `java` clone of the popular mobile game `Flappy Bird`.
 - [Usage](#usage)
 
 ## Usage
-1. 
+1. Download `flappy-bird.jar`
+2. Execute `java -jar flappy-bird.jar` 
