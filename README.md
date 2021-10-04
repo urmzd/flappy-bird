@@ -1,13 +1,10 @@
-# flappybird
-Flappy Bird clone in Java using JavaFX13.
+# Flappy Bird
 
-Requirements for compilation:
+A `java` clone of the popular mobile game `Flappy Bird`. 
 
-JavaFX13
-Java 8+
 
-# HOW TO RUN:
+## Table of Contents
+- [Usage](#usage)
 
-1. Download jar file.
-2. Ensure that you have Java 8+ installed and open file.
-3. Play. (PRESS SPACE TO PLAY, PRESS SPACE TO MOVE UP).
+## Usage
+1. 
