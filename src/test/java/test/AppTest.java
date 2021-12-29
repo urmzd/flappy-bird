@@ -1,4 +1,4 @@
-package com.urmzd.flappybird;
+package test;
 
 import org.junit.jupiter.api.Test;
 

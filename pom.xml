@@ -15,12 +15,20 @@
     <name>Urmzd</name>
   </organization>
   <dependencies>
+
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-base</artifactId>
+      <version>18-ea+8</version>
+    </dependency>
+
+
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-graphics</artifactId>
-      <version>17</version>
-      <type>pom</type>
+      <version>18-ea+8</version>
     </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
@@ -57,7 +65,7 @@
         <configuration>
           <jlinkImageName>flappybird</jlinkImageName>
           <launcher>launcher</launcher>
-          <mainClass>flappybird/com.urmzd.flappybird.App</mainClass>
+          <mainClass>main/com.urmzd.flappybird.App</mainClass>
         </configuration>
       </plugin>
     </plugins>
