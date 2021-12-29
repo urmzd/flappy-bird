@@ -14,6 +14,7 @@ A Flappy Bird clone developed using JavaFX18.
 ## Prerequisites
 
 - Optional (only required when rebuilding) - [Maven](https://maven.apache.org/)
+- Optional (only required when rebuilding) - [Java 11](https://openjdk.java.net/projects/jdk/11/)
 
 ## Build
 
