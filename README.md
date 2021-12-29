@@ -1,11 +1,25 @@
 # Flappy Bird
 
-A `java` clone of the popular mobile game `Flappy Bird`. 
-
+A Flappy Bird clone developed using JavaFX.
 
 ## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Build](#build)
 - [Usage](#usage)
+  - [Using Maven]()
+  - [Using Executable]()
+
+## Prerequisites
+
+- Optional (only required when re-building) - [Maven](https://maven.apache.org/)
+
+## Build
+
+To build the project, simply execute `mvn clean install`.
 
 ## Usage
-1. Download `flappy-bird.jar`
-2. Execute `java -jar flappy-bird.jar` 
+
+### Using Maven
+
+### Using Executable
