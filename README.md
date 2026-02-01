@@ -1,37 +1,34 @@
 # Flappy Bird
 
-A Flappy Bird clone developed using JavaFX18.
+A Flappy Bird clone built with JavaFX and Java 21.
 
-## Table of Contents
+## Download
 
-- [Prerequisites](#prerequisites)
-- [Build](#build)
-- [Usage](#usage)
-  - [Using Maven](#using-maven)
-  - [Using Prebuilt Image](#using-prebuilt-image)
-- [Screenshots](#screenshots)
+Get the latest release for your platform from the [Releases page](../../releases):
 
-## Prerequisites
+| Platform | Download |
+|----------|----------|
+| Linux | `flappybird-linux.zip` |
+| macOS | `flappybird-macos.zip` |
+| Windows | `flappybird-windows.zip` |
 
-- Optional (only required when rebuilding) - [Maven](https://maven.apache.org/)
+Extract and run the launcher - no Java installation required.
 
-## Build
+## Controls
 
-To create an executable image, simply run `mvn clean javafx:jlink` in the root directory.
+| Key | Action |
+|-----|--------|
+| SPACE | Jump / Start |
+| Any key | Restart (after game over) |
 
-## Usage
+## Screenshot
 
-The two methods of running the project are listed below.
-
-### Using Maven
-
-If all [prerequisites](#prerequisites) are installed, execute `mvn clean javafx:run`.
-A running instance of the game should be shown.
-
-### Using Prebuilt Image
-After downloading and extracting the `flappybird.zip` folder in the latest release,
-run the executable found in `flappybird/bin/launcher`.
-
-### Screenshots
 ![Running Instance](./resources/running-instance.png)
 
+## Development
+
+See [SETUP.md](./SETUP.md) for build instructions and project architecture.
+
+## License
+
+[MIT](./LICENSE)
