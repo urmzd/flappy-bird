@@ -12,14 +12,7 @@ Get the latest release for your platform from the [Releases page](../../releases
 | macOS | `flappybird-macos.zip` |
 | Windows | `flappybird-windows.zip` |
 
-<<<<<<< HEAD
-- Optional (only required when rebuilding) - [Maven](https://maven.apache.org/)
-- Optional (only required when rebuilding) - [Java 11](https://openjdk.java.net/projects/jdk/11/)
-||||||| ce1a98e
-- Optional (only required when rebuilding) - [Maven](https://maven.apache.org/)
-=======
 Extract and run the launcher - no Java installation required.
->>>>>>> appmod/java-upgrade-20260128055821
 
 ## Controls
 
