@@ -6,7 +6,7 @@ import java.util.List;
 public interface PipeSystem {
   List<PipeState> update(List<PipeState> pipes);
 
-  List<PipeState> spawnIfNeeded(List<PipeState> pipes);
+  List<PipeState> spawnIfNeeded(List<PipeState> pipes, int score);
 
   List<PipeState> removeOffscreen(List<PipeState> pipes);
 

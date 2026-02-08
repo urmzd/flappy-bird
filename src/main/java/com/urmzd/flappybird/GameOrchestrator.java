@@ -2,6 +2,7 @@ package com.urmzd.flappybird;
 
 import com.urmzd.flappybird.input.GameAction;
 import com.urmzd.flappybird.state.*;
+import com.urmzd.flappybird.state.Vector;
 import com.urmzd.flappybird.systems.*;
 import java.util.List;
 import java.util.Optional;
@@ -84,9 +85,10 @@ public final class GameOrchestrator {
 
     if (state.phase() instanceof GamePhase.Playing
         || (state.phase() instanceof GamePhase.GameOver && state.bird().active())) {
-      updatedFloor = floorSystem.update(state.floor());
+      double currentSpeed = DifficultyConfig.pipeSpeed(state.score());
+      updatedFloor = floorSystem.update(state.floor().withVelocity(new Vector(currentSpeed, 0)));
       updatedPipes = pipeSystem.update(state.pipes());
-      updatedPipes = pipeSystem.spawnIfNeeded(updatedPipes);
+      updatedPipes = pipeSystem.spawnIfNeeded(updatedPipes, state.score());
       updatedPipes = pipeSystem.removeOffscreen(updatedPipes);
     } else if (state.phase() instanceof GamePhase.Ready) {
       updatedFloor = floorSystem.update(state.floor());

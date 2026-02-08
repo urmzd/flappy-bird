@@ -30,7 +30,7 @@ class PipeSystemTest {
     void spawnsWhenEmpty() {
       List<PipeState> pipes = List.of();
 
-      var result = pipeSystem.spawnIfNeeded(pipes);
+      var result = pipeSystem.spawnIfNeeded(pipes, 0);
 
       assertEquals(2, result.size());
     }
@@ -40,7 +40,7 @@ class PipeSystemTest {
     void spawnsBottomAndTop() {
       List<PipeState> pipes = List.of();
 
-      var result = pipeSystem.spawnIfNeeded(pipes);
+      var result = pipeSystem.spawnIfNeeded(pipes, 0);
 
       var bottomPipes = result.stream().filter(p -> !p.isTop()).count();
       var topPipes = result.stream().filter(PipeState::isTop).count();
@@ -56,7 +56,7 @@ class PipeSystemTest {
       var pipe2 = PipeState.create(288, -200, -2, true);
       List<PipeState> pipes = List.of(pipe1, pipe2);
 
-      var result = pipeSystem.spawnIfNeeded(pipes);
+      var result = pipeSystem.spawnIfNeeded(pipes, 0);
 
       assertEquals(2, result.size());
     }

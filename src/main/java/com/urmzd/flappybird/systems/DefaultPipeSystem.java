@@ -9,7 +9,6 @@ import java.util.Random;
 
 public class DefaultPipeSystem implements PipeSystem {
 
-  private static final double PIPE_VELOCITY_X = -2;
   private static final double SPAWN_X = 288;
   private static final double PIPE_WIDTH = 52;
   private static final double SPAWN_TRIGGER_X = GameState.WIDTH / 2.0 - PIPE_WIDTH;
@@ -36,25 +35,27 @@ public class DefaultPipeSystem implements PipeSystem {
   }
 
   @Override
-  public List<PipeState> spawnIfNeeded(List<PipeState> pipes) {
+  public List<PipeState> spawnIfNeeded(List<PipeState> pipes, int score) {
     if (pipes.isEmpty()) {
-      return spawnPair(pipes);
+      return spawnPair(pipes, score);
     }
 
     double lastPipeX = pipes.get(pipes.size() - 1).position().x();
     if (lastPipeX <= SPAWN_TRIGGER_X) {
-      return spawnPair(pipes);
+      return spawnPair(pipes, score);
     }
 
     return pipes;
   }
 
-  private List<PipeState> spawnPair(List<PipeState> pipes) {
+  private List<PipeState> spawnPair(List<PipeState> pipes, int score) {
     double heightOffset = getRandomHeight();
+    double velocity = DifficultyConfig.pipeSpeed(score);
+    double gapSize = DifficultyConfig.gapSize(score);
 
-    PipeState bottomPipe = PipeState.create(SPAWN_X, 80 + heightOffset, PIPE_VELOCITY_X, false);
+    PipeState bottomPipe = PipeState.create(SPAWN_X, gapSize + heightOffset, velocity, false);
 
-    PipeState topPipe = PipeState.create(SPAWN_X, -320 + heightOffset, PIPE_VELOCITY_X, true);
+    PipeState topPipe = PipeState.create(SPAWN_X, -320 + heightOffset, velocity, true);
 
     List<PipeState> updated = new ArrayList<>(pipes);
     updated.add(bottomPipe);
