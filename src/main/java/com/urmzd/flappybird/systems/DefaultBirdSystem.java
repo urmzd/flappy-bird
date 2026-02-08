@@ -6,11 +6,14 @@ import com.urmzd.flappybird.state.Vector;
 
 public class DefaultBirdSystem implements BirdSystem {
 
-  private static final double MAX_ACCELERATION = 0.1;
-  private static final double ACCELERATION_INCREMENT = 0.006;
-  private static final double JUMP_VELOCITY = -2.5;
-  private static final double JUMP_ROTATION = -25;
-  private static final double ROTATION_DELAY = 10;
+  private static final double MAX_ACCELERATION = 0.08;
+  private static final double ACCELERATION_INCREMENT = 0.004;
+  private static final double JUMP_VELOCITY = -2.7;
+  private static final double JUMP_ROTATION = -30;
+  private static final double ROTATION_DELAY = 18;
+  private static final double MAX_FALL_SPEED = 3.5;
+  private static final double ROTATION_SCALE = 25;
+  private static final double ROTATION_EASING = 0.12;
   private static final double DEAD_VELOCITY = 6;
   private static final int TYPE_DELAY = 10;
   private static final int ANIMATION_FRAMES = 3;
@@ -49,12 +52,17 @@ public class DefaultBirdSystem implements BirdSystem {
       newAcceleration = new Vector(0, yAccel + ACCELERATION_INCREMENT);
     }
 
-    double newRotation = bird.rotation();
-    if (newRotationTime >= ROTATION_DELAY && bird.rotation() <= 90) {
-      newRotation = bird.rotation() + (newAcceleration.y() * 17);
+    Vector newVelocity = PhysicsSystem.applyAcceleration(bird.velocity(), newAcceleration);
+    if (newVelocity.y() > MAX_FALL_SPEED) {
+      newVelocity = new Vector(0, MAX_FALL_SPEED);
     }
 
-    Vector newVelocity = PhysicsSystem.applyAcceleration(bird.velocity(), newAcceleration);
+    double newRotation = bird.rotation();
+    if (newRotationTime >= ROTATION_DELAY) {
+      double targetRotation =
+          Math.min(90, Math.max(JUMP_ROTATION, newVelocity.y() * ROTATION_SCALE));
+      newRotation = bird.rotation() + (targetRotation - bird.rotation()) * ROTATION_EASING;
+    }
     Vector newPosition = PhysicsSystem.applyVelocity(bird.position(), newVelocity);
 
     return bird.withAcceleration(newAcceleration)
