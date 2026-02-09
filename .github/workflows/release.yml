@@ -39,14 +39,26 @@ jobs:
       - name: Build jlink image
         run: mvn clean javafx:jlink -DskipTests
 
-      - name: Create archive (Unix)
-        if: matrix.platform != 'windows'
-        run: cd target && zip -r ${{ matrix.artifact }}.zip flappybird
+      - name: Create app image with jpackage
+        run: >
+          jpackage --type app-image
+          --name FlappyBird
+          --runtime-image target/flappybird
+          --module flappybird/com.urmzd.flappybird.GameCanvas
+          --dest target/package
+
+      - name: Create archive (macOS)
+        if: matrix.platform == 'macos'
+        run: cd target/package && zip -r -y ../${{ matrix.artifact }}.zip FlappyBird.app
+
+      - name: Create archive (Linux)
+        if: matrix.platform == 'linux'
+        run: cd target/package && zip -r ../${{ matrix.artifact }}.zip FlappyBird
 
       - name: Create archive (Windows)
         if: matrix.platform == 'windows'
         shell: pwsh
-        run: cd target; Compress-Archive -Path flappybird -DestinationPath ${{ matrix.artifact }}.zip
+        run: cd target/package; Compress-Archive -Path FlappyBird -DestinationPath ../${{ matrix.artifact }}.zip
 
       - uses: actions/upload-artifact@v4
         with:

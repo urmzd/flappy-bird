@@ -6,13 +6,17 @@ A Flappy Bird clone built with JavaFX and Java 21.
 
 Get the latest release for your platform from the [Releases page](../../releases):
 
-| Platform | Download |
-|----------|----------|
-| Linux | `flappybird-linux.zip` |
-| macOS | `flappybird-macos.zip` |
-| Windows | `flappybird-windows.zip` |
+| Platform | Download | After extracting |
+|----------|----------|-----------------|
+| macOS | `flappybird-macos.zip` | Double-click **FlappyBird.app** |
+| Windows | `flappybird-windows.zip` | Run **FlappyBird\FlappyBird.exe** |
+| Linux | `flappybird-linux.zip` | Run **FlappyBird/bin/FlappyBird** |
 
-Extract and run the launcher - no Java installation required.
+No Java installation required — the download includes a bundled runtime.
+
+> **macOS users:** macOS may block the application since it is not signed. To allow it,
+> right-click **FlappyBird.app**, select **Open**, then click **Open** in the dialog.
+> Alternatively, go to **System Settings → Privacy & Security** and click **Open Anyway**.
 
 ## Controls
 

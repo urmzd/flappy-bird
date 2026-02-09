@@ -28,13 +28,17 @@ clean:
 # Full rebuild (clean + build)
 rebuild: clean build
 
-# Package as JAR
+# Create native app image with jlink + jpackage
 package:
-    mvn package -DskipTests
-
-# Create executable image with jlink
-image:
     mvn clean javafx:jlink
+    jpackage --type app-image \
+      --name FlappyBird \
+      --runtime-image target/flappybird \
+      --module flappybird/com.urmzd.flappybird.GameCanvas \
+      --dest target/package
+
+# Alias for backward compatibility
+image: package
 
 # Run with hot reload (recompile and run)
 dev: build run

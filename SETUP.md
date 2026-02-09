@@ -26,7 +26,8 @@ mvn javafx:run
 | `just test` | Run tests |
 | `just clean` | Clean build artifacts |
 | `just rebuild` | Clean and build |
-| `just image` | Create jlink executable |
+| `just package` | Create native app image (jlink + jpackage) |
+| `just image` | Alias for `just package` |
 | `just dev` | Build and run |
 
 ## Creating a Release
