@@ -90,7 +90,7 @@ jobs:
           cp artifacts/flappybird-*/flappybird-*.zip release-assets/
 
       - name: Semantic Release
-        uses: urmzd/semantic-release@v0
+        uses: urmzd/semantic-release@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           artifacts: "release-assets/*.zip"
