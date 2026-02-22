@@ -32,7 +32,3 @@ No Java installation required — the download includes a bundled runtime.
 ## Development
 
 See [SETUP.md](./SETUP.md) for build instructions and project architecture.
-
-## License
-
-[MIT](./LICENSE)
