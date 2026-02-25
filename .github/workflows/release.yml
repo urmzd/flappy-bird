@@ -26,7 +26,19 @@ jobs:
           fetch-depth: 0
 
       - name: Semantic Release
+        id: sr
         uses: urmzd/semantic-release@v1
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           force: ${{ inputs.force }}
+
+    outputs:
+      released: ${{ steps.sr.outputs.released }}
+      tag: ${{ steps.sr.outputs.tag }}
+
+  build:
+    needs: release
+    if: needs.release.outputs.released == 'true'
+    uses: ./.github/workflows/build.yml
+    with:
+      tag: ${{ needs.release.outputs.tag }}

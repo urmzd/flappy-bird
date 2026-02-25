@@ -3,6 +3,11 @@ name: Build
 on:
   push:
     tags: ["v*"]
+  workflow_call:
+    inputs:
+      tag:
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -60,6 +65,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TAG="${GITHUB_REF_NAME}"
+          TAG="${{ inputs.tag || github.ref_name }}"
           gh release upload "$TAG" "target/${{ matrix.artifact }}.zip" --clobber
         shell: bash
