@@ -39,6 +39,53 @@ jobs:
   build:
     needs: release
     if: needs.release.outputs.released == 'true'
-    uses: ./.github/workflows/build.yml
-    with:
-      tag: ${{ needs.release.outputs.tag }}
+    name: Build (${{ matrix.platform }})
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            platform: linux
+            artifact: flappybird-linux
+          - os: macos-latest
+            platform: macos
+            artifact: flappybird-macos
+          - os: windows-latest
+            platform: windows
+            artifact: flappybird-windows
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.release.outputs.tag }}
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'maven'
+      - name: Build jlink image
+        run: mvn clean javafx:jlink -DskipTests
+      - name: Create app image with jpackage
+        run: >
+          jpackage --type app-image
+          --name FlappyBird
+          --runtime-image target/flappybird
+          --module flappybird/com.urmzd.flappybird.GameCanvas
+          --dest target/package
+      - name: Create archive (macOS)
+        if: matrix.platform == 'macos'
+        run: cd target/package && zip -r -y ../${{ matrix.artifact }}.zip FlappyBird.app
+      - name: Create archive (Linux)
+        if: matrix.platform == 'linux'
+        run: cd target/package && zip -r ../${{ matrix.artifact }}.zip FlappyBird
+      - name: Create archive (Windows)
+        if: matrix.platform == 'windows'
+        shell: pwsh
+        run: cd target/package; Compress-Archive -Path FlappyBird -DestinationPath ../${{ matrix.artifact }}.zip
+      - name: Upload to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ needs.release.outputs.tag }}
+        run: gh release upload "$TAG" "target/${{ matrix.artifact }}.zip" --clobber
+        shell: bash
