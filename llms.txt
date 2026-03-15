@@ -1,0 +1,22 @@
+# Flappy Bird
+
+> A Flappy Bird clone built with JavaFX and Java 21, demonstrating data-oriented design patterns with immutable state (Java records), sealed interfaces for exhaustive pattern matching, and dependency injection. Ships as native app images for macOS, Windows, and Linux with no Java installation required.
+
+## Docs
+
+- [README](https://github.com/urmzd/flappy-bird/blob/main/README.md): Download links, controls, and screenshot
+- [SETUP.md](https://github.com/urmzd/flappy-bird/blob/main/SETUP.md): Build instructions, commands, and project architecture
+- [AGENTS.md](https://github.com/urmzd/flappy-bird/blob/main/AGENTS.md): Architecture and development guide
+
+## API / Key Files
+
+- [src/main/java/com/urmzd/flappybird/GameCanvas.java](https://github.com/urmzd/flappy-bird/blob/main/src/main/java/com/urmzd/flappybird/GameCanvas.java): JavaFX application entry point
+- [src/main/java/com/urmzd/flappybird/GameOrchestrator.java](https://github.com/urmzd/flappy-bird/blob/main/src/main/java/com/urmzd/flappybird/GameOrchestrator.java): Game loop coordinator with DI
+- [src/main/java/com/urmzd/flappybird/state/](https://github.com/urmzd/flappy-bird/blob/main/src/main/java/com/urmzd/flappybird/state/): Immutable game state records
+- [src/main/java/com/urmzd/flappybird/systems/](https://github.com/urmzd/flappy-bird/blob/main/src/main/java/com/urmzd/flappybird/systems/): Game logic systems
+- [pom.xml](https://github.com/urmzd/flappy-bird/blob/main/pom.xml): Maven build configuration
+
+## Optional
+
+- [CONTRIBUTING](https://github.com/urmzd/flappy-bird/blob/main/CONTRIBUTING.md): How to contribute
+- [Skill](https://github.com/urmzd/flappy-bird/blob/main/skills/flappy-bird/SKILL.md): Agent skill

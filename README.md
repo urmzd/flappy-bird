@@ -1,6 +1,17 @@
-# Flappy Bird
+<p align="center">
+  <h1 align="center">Flappy Bird</h1>
+  <p align="center">
+    A Flappy Bird clone built with JavaFX and Java 21.
+    <br /><br />
+    <a href="https://github.com/urmzd/flappy-bird/releases">Download</a>
+    &middot;
+    <a href="https://github.com/urmzd/flappy-bird/issues">Report Bug</a>
+  </p>
+</p>
 
-A Flappy Bird clone built with JavaFX and Java 21.
+<p align="center">
+  <a href="https://github.com/urmzd/flappy-bird/actions/workflows/ci.yml"><img src="https://github.com/urmzd/flappy-bird/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+</p>
 
 ## Download
 
@@ -28,6 +39,12 @@ No Java installation required — the download includes a bundled runtime.
 ## Screenshot
 
 ![Running Instance](./resources/running-instance.png)
+
+## Agent Skill
+
+```bash
+npx skills add urmzd/flappy-bird
+```
 
 ## Development
 

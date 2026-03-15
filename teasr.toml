@@ -1,0 +1,11 @@
+[output]
+dir = "./showcase"
+formats = ["png"]
+
+# Flappy Bird uses JavaFX — capture the game window via screen capture.
+# Requires the app to be built and launched before capture.
+[[scenes]]
+type = "screen"
+name = "flappy-bird-game"
+setup = "mvn javafx:run &"
+delay = 5000
