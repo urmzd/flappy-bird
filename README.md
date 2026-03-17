@@ -1,3 +1,5 @@
+> **Note:** This repository is archived and no longer actively maintained.
+
 <p align="center">
   <img src="./resources/running-instance.png" alt="Flappy Bird" width="400" />
 </p>
