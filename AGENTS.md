@@ -2,7 +2,7 @@
 
 ## Identity
 
-You are an agent working on **flappy-bird** — a Flappy Bird clone built with JavaFX and Java 21, demonstrating data-oriented design patterns with immutable state, sealed interfaces, and dependency injection.
+You are an agent working on **Flappy Bird** — a Flappy Bird clone built with JavaFX and Java 21, featuring data-oriented design with immutable state, sealed interfaces, and dependency injection.
 
 ## Architecture
 
@@ -14,7 +14,7 @@ Data-Oriented Design with SOLID principles across four layers:
 | Systems | `src/main/java/.../systems/` | Interfaces + implementations (what things *do*) |
 | Rendering | `src/main/java/.../rendering/` | Drawing logic (how things *look*) |
 | Input | `src/main/java/.../input/` | User input handling |
-| Orchestrator | `GameOrchestrator.java` | Coordinates systems with dependency injection |
+| Orchestrator | `GameOrchestrator.java` | Coordinates systems via dependency injection |
 
 ```
 src/main/java/com/urmzd/flappybird/
@@ -28,13 +28,13 @@ src/main/java/com/urmzd/flappybird/
 
 ## Key Files
 
-- `src/main/java/com/urmzd/flappybird/GameCanvas.java` — Application entry point (JavaFX)
-- `src/main/java/com/urmzd/flappybird/GameOrchestrator.java` — Game loop coordinator
-- `src/main/java/com/urmzd/flappybird/state/GameState.java` — Immutable game state record
-- `src/main/java/com/urmzd/flappybird/state/GamePhase.java` — Sealed interface: Ready | Playing | GameOver
-- `src/main/java/com/urmzd/flappybird/systems/` — Game logic systems
-- `src/main/java/com/urmzd/flappybird/rendering/Renderer.java` — Drawing logic
-- `pom.xml` — Maven build config with JavaFX 21, JUnit 5, Spotless
+- `GameCanvas.java` — Application entry point (JavaFX)
+- `GameOrchestrator.java` — Game loop coordinator
+- `state/GameState.java` — Immutable game state record
+- `state/GamePhase.java` — Sealed interface: Ready | Playing | GameOver
+- `systems/` — Game logic systems (interfaces + default implementations)
+- `rendering/Renderer.java` — Drawing logic
+- `pom.xml` — Maven build config (JavaFX 21, JUnit 5, Spotless)
 - `justfile` — Task runner
 
 ## Commands
@@ -57,3 +57,11 @@ src/main/java/com/urmzd/flappybird/
 - Dependency injection — systems injected into `GameOrchestrator`
 - Pure functions — systems transform state without side effects
 - JUnit 5 for testing
+
+## Conventions
+
+- **Do not** mutate state — always return new record instances
+- **Do not** add rendering logic to systems — keep layers separate
+- **Do** use sealed interfaces for any new type hierarchies
+- **Do** inject dependencies via constructor parameters
+- **Do** write tests for new systems
